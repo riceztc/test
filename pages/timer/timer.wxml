@@ -1,0 +1,61 @@
+<view class="container">
+  <!-- 倒计时显示 -->
+  <view class="timer-display">
+    <view class="time-text">{{displayTime}}</view>
+    <view class="timer-circle" wx:if="{{isRunning}}">
+      <view class="circle-bg"></view>
+      <view class="circle-progress" style="transform: rotate({{progressDeg}}deg)"></view>
+    </view>
+  </view>
+
+  <!-- 时间输入区域 -->
+  <view class="time-input" wx:if="{{!isRunning}}">
+    <view class="input-group">
+      <view class="input-item">
+        <input type="number" placeholder="00" value="{{hours}}" bindinput="onHoursInput" />
+        <text class="input-label">时</text>
+      </view>
+      <text class="separator">:</text>
+      <view class="input-item">
+        <input type="number" placeholder="00" value="{{minutes}}" bindinput="onMinutesInput" />
+        <text class="input-label">分</text>
+      </view>
+      <text class="separator">:</text>
+      <view class="input-item">
+        <input type="number" placeholder="00" value="{{seconds}}" bindinput="onSecondsInput" />
+        <text class="input-label">秒</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 快捷时间按钮 -->
+  <view class="quick-buttons" wx:if="{{!isRunning}}">
+    <button class="quick-btn" bindtap="setQuickTime" data-time="60">1分钟</button>
+    <button class="quick-btn" bindtap="setQuickTime" data-time="300">5分钟</button>
+    <button class="quick-btn" bindtap="setQuickTime" data-time="600">10分钟</button>
+    <button class="quick-btn" bindtap="setQuickTime" data-time="1800">30分钟</button>
+  </view>
+
+  <!-- 控制按钮 -->
+  <view class="control-buttons">
+    <button wx:if="{{!isRunning}}" class="btn start-btn" bindtap="startTimer">开始计时</button>
+    <button wx:else class="btn pause-btn" bindtap="pauseTimer">暂停</button>
+    <button wx:if="{{!isRunning && totalSeconds > 0}}" class="btn reset-btn" bindtap="resetTimer">重置</button>
+    <button wx:if="{{isRunning}}" class="btn stop-btn" bindtap="stopTimer">停止</button>
+  </view>
+
+  <!-- 倒计时列表 -->
+  <view class="presets" wx:if="{{!isRunning}}">
+    <view class="presets-header">
+      <text>常用倒计时</text>
+      <button class="add-preset" bindtap="showAddPreset">+</button>
+    </view>
+    <scroll-view class="presets-list" scroll-y>
+      <view class="preset-item" wx:for="{{presets}}" wx:key="index" bindtap="usePreset" data-time="{{item.time}}">
+        <text class="preset-name">{{item.name}}</text>
+        <text class="preset-time">{{item.display}}</text>
+        <button class="delete-preset" bindtap="deletePreset" data-index="{{index}}" catchtap="true">×</button>
+      </view>
+    </scroll-view>
+  </view>
+</view>

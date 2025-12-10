@@ -1,0 +1,65 @@
+<view class="container">
+  <view class="calculator">
+    <!-- 显示屏 -->
+    <view class="display">
+      <view class="expression">{{expression}}</view>
+      <view class="result">{{result}}</view>
+    </view>
+    
+    <!-- 按钮区域 -->
+    <view class="buttons">
+      <!-- 第一行 -->
+      <view class="row">
+        <button class="btn function" bindtap="clear">AC</button>
+        <button class="btn function" bindtap="toggleSign">+/-</button>
+        <button class="btn function" bindtap="percentage">%</button>
+        <button class="btn operator" bindtap="appendOperator" data-op="/">÷</button>
+      </view>
+      
+      <!-- 第二行 -->
+      <view class="row">
+        <button class="btn number" bindtap="appendNumber" data-num="7">7</button>
+        <button class="btn number" bindtap="appendNumber" data-num="8">8</button>
+        <button class="btn number" bindtap="appendNumber" data-num="9">9</button>
+        <button class="btn operator" bindtap="appendOperator" data-op="*">×</button>
+      </view>
+      
+      <!-- 第三行 -->
+      <view class="row">
+        <button class="btn number" bindtap="appendNumber" data-num="4">4</button>
+        <button class="btn number" bindtap="appendNumber" data-num="5">5</button>
+        <button class="btn number" bindtap="appendNumber" data-num="6">6</button>
+        <button class="btn operator" bindtap="appendOperator" data-op="-">-</button>
+      </view>
+      
+      <!-- 第四行 -->
+      <view class="row">
+        <button class="btn number" bindtap="appendNumber" data-num="1">1</button>
+        <button class="btn number" bindtap="appendNumber" data-num="2">2</button>
+        <button class="btn number" bindtap="appendNumber" data-num="3">3</button>
+        <button class="btn operator" bindtap="appendOperator" data-op="+">+</button>
+      </view>
+      
+      <!-- 第五行 -->
+      <view class="row">
+        <button class="btn number zero" bindtap="appendNumber" data-num="0">0</button>
+        <button class="btn number" bindtap="appendDecimal">.</button>
+        <button class="btn equals" bindtap="calculate">=</button>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 历史记录 -->
+  <view class="history" wx:if="{{history.length > 0}}">
+    <view class="history-header">
+      <text>历史记录</text>
+      <button class="clear-history" bindtap="clearHistory">清空</button>
+    </view>
+    <scroll-view class="history-list" scroll-y>
+      <view class="history-item" wx:for="{{history}}" wx:key="index">
+        <text class="history-expr">{{item.expression}}</text>
+        <text class="history-result">{{item.result}}</text>
+      </view>
+    </scroll-view>
+  </view>
+</view>

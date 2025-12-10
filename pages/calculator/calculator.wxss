@@ -1,0 +1,177 @@
+/* 计算器样式 */
+page {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.container {
+  padding: 30rpx;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.calculator {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20rpx;
+  padding: 40rpx 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.1);
+}
+
+.display {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 15rpx;
+  padding: 30rpx 20rpx;
+  margin-bottom: 30rpx;
+  text-align: right;
+  backdrop-filter: blur(10px);
+}
+
+.expression {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+  min-height: 30rpx;
+}
+
+.result {
+  color: white;
+  font-size: 48rpx;
+  font-weight: bold;
+  min-height: 60rpx;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.buttons {
+  display: grid;
+  gap: 15rpx;
+}
+
+.row {
+  display: flex;
+  gap: 15rpx;
+}
+
+.btn {
+  flex: 1;
+  height: 100rpx;
+  border-radius: 50rpx;
+  border: none;
+  font-size: 36rpx;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 4rpx 15rpx rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.3);
+}
+
+.number {
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+}
+
+.number:active {
+  background: rgba(255, 255, 255, 1);
+}
+
+.operator {
+  background: #ff9500;
+  color: white;
+}
+
+.operator:active {
+  background: #e6850e;
+}
+
+.function {
+  background: rgba(255, 255, 255, 0.6);
+  color: #333;
+}
+
+.function:active {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.equals {
+  background: #4CAF50;
+  color: white;
+}
+
+.equals:active {
+  background: #45a049;
+}
+
+.zero {
+  flex: 2;
+}
+
+/* 历史记录 */
+.history {
+  background: white;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-shadow: 0 5rpx 20rpx rgba(0, 0, 0, 0.1);
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #eee;
+}
+
+.history-header text {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.clear-history {
+  background: #ff4444;
+  color: white;
+  border: none;
+  padding: 10rpx 20rpx;
+  border-radius: 15rpx;
+  font-size: 24rpx;
+}
+
+.clear-history:active {
+  background: #cc0000;
+}
+
+.history-list {
+  max-height: 400rpx;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15rpx 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.history-item:last-child {
+  border-bottom: none;
+}
+
+.history-expr {
+  font-size: 28rpx;
+  color: #666;
+  flex: 1;
+}
+
+.history-result {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: 600;
+}

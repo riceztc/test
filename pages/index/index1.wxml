@@ -1,0 +1,70 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <!-- 未授权状态 -->
+    <view wx:if="{{!hasUserInfo}}" class="login-section">
+      <button class="avatar-button" bindtap="getUserProfile">
+        <view class="login-icon">👤</view>
+        <text class="login-text">点击获取头像昵称</text>
+      </button>
+    </view>
+    
+    <!-- 已授权状态 - 使用官方 open-data 组件 -->
+    <view wx:else class="user-section">
+      <view class="avatar-container" bindtap="bindViewTap">
+        <!-- 使用 open-data 组件显示用户头像 -->
+        <open-data type="userAvatarUrl" 
+                  class="userinfo-avatar-open" 
+                  lang="zh_CN">
+        </open-data>
+        
+        <!-- 点击提示覆盖层 -->
+        <view class="avatar-overlay">
+          <text class="avatar-hint">点击</text>
+        </view>
+      </view>
+      
+      <!-- 使用 open-data 组件显示用户昵称 -->
+      <open-data type="userNickName" 
+                class="userinfo-nickname-open" 
+                lang="zh_CN">
+      </open-data>
+    </view>
+  </view>
+  
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+
+  <view class="action-section">
+    <button class="btn" bindtap="goToList">查看账单列表</button>
+    <button class="btn" bindtap="goToAdd">添加新账单</button>
+  </view>
+
+  <view class="quick-stats">
+    <text class="stats-title">今日统计</text>
+    
+    <view class="stats-row">
+      <view class="stats-item">
+        <text class="stats-label">收入</text>
+        <text class="stats-value income">+¥{{todayIncome}}</text>
+      </view>
+      <view class="stats-item">
+        <text class="stats-label">支出</text>
+        <text class="stats-value expense">-¥{{todayExpense}}</text>
+      </view>
+    </view>
+    
+    <view class="stats-row net-income">
+      <text class="stats-label">净收入</text>
+      <text class="stats-value {{netIncome >= 0 ? 'positive' : 'negative'}}">
+        {{netIncome >= 0 ? '+' : ''}}¥{{netIncome}}
+      </text>
+    </view>
+    
+    <view class="stats-footer">
+      <text class="update-time">更新时间: {{updateTime}}</text>
+      <button class="refresh-btn" bindtap="refreshStats">刷新</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,10 @@
+<view class="container">
+  <text class="title">操作日志</text>
+  
+  <view class="content">
+    <text>这是日志页面</text>
+    <text>用于测试页面跳转</text>
+  </view>
+  
+  <button class="back-btn" bindtap="goBack">返回首页</button>
+</view>

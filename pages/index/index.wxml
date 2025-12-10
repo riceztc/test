@@ -1,0 +1,67 @@
+<!--index.wxml - 基于微信官方文档的头像昵称填写功能-->
+<view class="container">
+  <view class="userinfo">
+    <!-- 未授权状态 -->
+    <block wx:if="{{!hasUserInfo}}">
+      <button wx:if="{{canIUseGetUserProfile}}" class="avatar-button" bindtap="getUserProfile"> 
+        <view class="login-icon">👤</view>
+        <text class="login-text">获取头像昵称</text>
+      </button>
+      <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="avatar-button">
+        <view class="login-icon">👤</view>
+        <text class="login-text">获取头像昵称</text>
+      </button>
+    </block>
+    
+    <!-- 已授权状态 - 使用 image 组件显示用户头像和昵称 -->
+    <block wx:else>
+      <view class="user-section">
+        <view class="avatar-container">
+          <!-- 使用 image 组件显示用户头像 -->
+          <image class="userinfo-avatar" 
+                 src="{{userInfo.avatarUrl}}" 
+                 mode="cover"></image>
+        </view>
+        
+        <!-- 使用 text 组件显示用户昵称 -->
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      </view>
+    </block>
+  </view>
+  
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+
+  <view class="action-section">
+    <button class="btn" bindtap="goToList">查看账单列表</button>
+    <button class="btn" bindtap="goToAdd">添加新账单</button>
+  </view>
+
+  <view class="quick-stats">
+    <text class="stats-title">今日统计</text>
+    
+    <view class="stats-row">
+      <view class="stats-item">
+        <text class="stats-label">收入</text>
+        <text class="stats-value income">+¥{{todayIncome}}</text>
+      </view>
+      <view class="stats-item">
+        <text class="stats-label">支出</text>
+        <text class="stats-value expense">-¥{{todayExpense}}</text>
+      </view>
+    </view>
+    
+    <view class="stats-row net-income">
+      <text class="stats-label">净收入</text>
+      <text class="stats-value {{netIncome >= 0 ? 'positive' : 'negative'}}">
+        {{netIncome >= 0 ? '+' : ''}}¥{{netIncome}}
+      </text>
+    </view>
+    
+    <view class="stats-footer">
+      <text class="update-time">更新时间: {{updateTime}}</text>
+      <button class="refresh-btn" bindtap="refreshStats">刷新</button>
+    </view>
+  </view>
+</view>

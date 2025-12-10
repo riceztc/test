@@ -1,0 +1,104 @@
+<!--万能小工具助手首页-->
+<view class="container">
+  <!-- 顶部标题区域 -->
+  <view class="header">
+    <view class="user-info">
+      <image class="avatar" src="{{userInfo.avatarUrl || '/images/default-avatar.png'}}" mode="cover"></image>
+      <text class="greeting">{{userInfo.nickName || '欢迎'}}</text>
+    </view>
+    <view class="app-title">
+      <text class="title">万能小工具助手</text>
+      <text class="subtitle">生活更便捷，工作更高效</text>
+    </view>
+  </view>
+
+  <!-- 工具网格 -->
+  <view class="tools-grid">
+    <!-- 记账本 -->
+    <view class="tool-item" bindtap="navigateToTool" data-path="index/index">
+      <view class="tool-icon accounting">
+        <text class="icon">💰</text>
+      </view>
+      <text class="tool-name">记账本</text>
+      <text class="tool-desc">轻松管理收支</text>
+    </view>
+
+    <!-- 计算器 -->
+    <view class="tool-item" bindtap="navigateToTool" data-path="calculator/index">
+      <view class="tool-icon calculator">
+        <text class="icon">🧮</text>
+      </view>
+      <text class="tool-name">计算器</text>
+      <text class="tool-desc">科学计算器</text>
+    </view>
+
+    <!-- 倒计时 -->
+    <view class="tool-item" bindtap="navigateToTool" data-path="timer/index">
+      <view class="tool-icon timer">
+        <text class="icon">⏰</text>
+      </view>
+      <text class="tool-name">倒计时</text>
+      <text class="tool-desc">定时提醒</text>
+    </view>
+
+    <!-- 备忘录 -->
+    <view class="tool-item" bindtap="navigateToTool" data-path="notes/index">
+      <view class="tool-icon notes">
+        <text class="icon">📝</text>
+      </view>
+      <text class="tool-name">备忘录</text>
+      <text class="tool-desc">记录生活点滴</text>
+    </view>
+
+    <!-- 天气查询 -->
+    <view class="tool-item" bindtap="navigateToTool" data-path="weather/index">
+      <view class="tool-icon weather">
+        <text class="icon">🌤️</text>
+      </view>
+      <text class="tool-name">天气查询</text>
+      <text class="tool-desc">实时天气信息</text>
+    </view>
+
+    <!-- 二维码生成 -->
+    <view class="tool-item" bindtap="navigateToTool" data-path="qrcode/index">
+      <view class="tool-icon qrcode">
+        <text class="icon">📱</text>
+      </view>
+      <text class="tool-name">二维码</text>
+      <text class="tool-desc">生成二维码</text>
+    </view>
+
+    <!-- 颜色选择器 -->
+    <view class="tool-item" bindtap="navigateToTool" data-path="color/index">
+      <view class="tool-icon color">
+        <text class="icon">🎨</text>
+      </view>
+      <text class="tool-name">颜色选择</text>
+      <text class="tool-desc">取色配色工具</text>
+    </view>
+
+    <!-- 单位转换 -->
+    <view class="tool-item" bindtap="navigateToTool" data-path="converter/index">
+      <view class="tool-icon converter">
+        <text class="icon">🔄</text>
+      </view>
+      <text class="tool-name">单位转换</text>
+      <text class="tool-desc">长度重量温度</text>
+    </view>
+
+    <!-- 更多工具 -->
+    <view class="tool-item" bindtap="showMoreTools">
+      <view class="tool-icon more">
+        <text class="icon">➕</text>
+      </view>
+      <text class="tool-name">更多工具</text>
+      <text class="tool-desc">敬请期待</text>
+    </view>
+  </view>
+
+  <!-- 底部信息 -->
+  <view class="footer">
+    <text class="version">版本 1.0.0</text>
+    <text class="copyright">© 2025 万能小工具助手</text>
+  </view>
+</view>

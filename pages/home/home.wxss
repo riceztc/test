@@ -1,0 +1,238 @@
+/* 万能小工具助手样式 */
+page {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+.container {
+  padding: 40rpx 30rpx;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* 顶部标题区域 */
+.header {
+  text-align: center;
+  margin-bottom: 60rpx;
+  padding: 40rpx 20rpx;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20rpx;
+  box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.1);
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  border: 4rpx solid #fff;
+  box-shadow: 0 6rpx 20rpx rgba(0, 0, 0, 0.15);
+  margin-bottom: 20rpx;
+  background-color: #f5f5f5;
+}
+
+.greeting {
+  font-size: 32rpx;
+  color: #666;
+  font-weight: 500;
+}
+
+.app-title {
+  border-top: 1px solid #eee;
+  padding-top: 30rpx;
+}
+
+.title {
+  display: block;
+  font-size: 44rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  display: block;
+  font-size: 28rpx;
+  color: #888;
+  font-weight: normal;
+}
+
+/* 工具网格 */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30rpx;
+  margin-bottom: 60rpx;
+}
+
+.tool-item {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20rpx;
+  padding: 40rpx 20rpx;
+  text-align: center;
+  box-shadow: 0 8rpx 25rpx rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.tool-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tool-item:active {
+  transform: scale(0.95);
+  box-shadow: 0 4rpx 15rpx rgba(0, 0, 0, 0.15);
+}
+
+.tool-item:active::before {
+  opacity: 1;
+}
+
+.tool-icon {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin: 0 auto 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.tool-icon::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: rotate(45deg);
+  transition: transform 0.6s ease;
+  opacity: 0;
+}
+
+.tool-item:active .tool-icon::after {
+  transform: rotate(45deg) translateY(100%);
+  opacity: 1;
+}
+
+/* 各工具图标样式 */
+.tool-icon.accounting {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+}
+
+.tool-icon.calculator {
+  background: linear-gradient(135deg, #2196F3, #1976D2);
+}
+
+.tool-icon.timer {
+  background: linear-gradient(135deg, #FF9800, #F57C00);
+}
+
+.tool-icon.notes {
+  background: linear-gradient(135deg, #9C27B0, #7B1FA2);
+}
+
+.tool-icon.weather {
+  background: linear-gradient(135deg, #00BCD4, #0097A7);
+}
+
+.tool-icon.qrcode {
+  background: linear-gradient(135deg, #795548, #5D4037);
+}
+
+.tool-icon.color {
+  background: linear-gradient(135deg, #E91E63, #C2185B);
+}
+
+.tool-icon.converter {
+  background: linear-gradient(135deg, #607D8B, #455A64);
+}
+
+.tool-icon.more {
+  background: linear-gradient(135deg, #9E9E9E, #757575);
+}
+
+.icon {
+  font-size: 48rpx;
+  color: white;
+  z-index: 1;
+  position: relative;
+}
+
+.tool-name {
+  display: block;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.tool-desc {
+  display: block;
+  font-size: 22rpx;
+  color: #666;
+  line-height: 1.3;
+}
+
+/* 底部信息 */
+.footer {
+  text-align: center;
+  padding: 40rpx 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.version {
+  display: block;
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 10rpx;
+}
+
+.copyright {
+  display: block;
+  font-size: 22rpx;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* 响应式设计 */
+@media (max-width: 400px) {
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20rpx;
+  }
+  
+  .tool-item {
+    padding: 30rpx 15rpx;
+  }
+  
+  .tool-icon {
+    width: 80rpx;
+    height: 80rpx;
+  }
+  
+  .icon {
+    font-size: 40rpx;
+  }
+}

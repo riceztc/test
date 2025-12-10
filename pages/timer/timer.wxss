@@ -1,0 +1,247 @@
+/* 倒计时样式 */
+page {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+.container {
+  padding: 40rpx 30rpx;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* 倒计时显示 */
+.timer-display {
+  text-align: center;
+  margin-bottom: 60rpx;
+  position: relative;
+}
+
+.time-text {
+  font-size: 72rpx;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.3);
+  margin-bottom: 40rpx;
+  font-family: 'Courier New', monospace;
+}
+
+.timer-circle {
+  width: 200rpx;
+  height: 200rpx;
+  position: relative;
+  margin: 0 auto;
+}
+
+.circle-bg {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 8rpx solid rgba(255, 255, 255, 0.3);
+  box-sizing: border-box;
+}
+
+.circle-progress {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 8rpx solid #4CAF50;
+  border-color: #4CAF50 transparent transparent transparent;
+  box-sizing: border-box;
+  transition: transform 1s linear;
+  transform-origin: center;
+}
+
+/* 时间输入 */
+.time-input {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20rpx;
+  padding: 40rpx;
+  margin-bottom: 40rpx;
+  box-shadow: 0 8rpx 25rpx rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20rpx;
+}
+
+.input-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10rpx;
+}
+
+.input-item input {
+  width: 120rpx;
+  height: 100rpx;
+  text-align: center;
+  font-size: 48rpx;
+  font-weight: bold;
+  border: 2rpx solid #ddd;
+  border-radius: 15rpx;
+  background: white;
+}
+
+.input-label {
+  font-size: 24rpx;
+  color: #666;
+  font-weight: 500;
+}
+
+.separator {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 快捷按钮 */
+.quick-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15rpx;
+  margin-bottom: 40rpx;
+}
+
+.quick-btn {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 15rpx;
+  padding: 20rpx 10rpx;
+  font-size: 24rpx;
+  color: #333;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.quick-btn:active {
+  background: white;
+  transform: scale(0.95);
+}
+
+/* 控制按钮 */
+.control-buttons {
+  display: flex;
+  gap: 20rpx;
+  margin-bottom: 40rpx;
+}
+
+.btn {
+  flex: 1;
+  height: 80rpx;
+  border: none;
+  border-radius: 40rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.start-btn {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+}
+
+.pause-btn {
+  background: linear-gradient(135deg, #ff9800, #F57C00);
+}
+
+.stop-btn {
+  background: linear-gradient(135deg, #f44336, #d32f2f);
+}
+
+.reset-btn {
+  background: linear-gradient(135deg, #607D8B, #455A64);
+}
+
+/* 预设列表 */
+.presets {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-shadow: 0 8rpx 25rpx rgba(0, 0, 0, 0.1);
+}
+
+.presets-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #eee;
+}
+
+.presets-header text {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.add-preset {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-preset:active {
+  background: #45a049;
+}
+
+.presets-list {
+  max-height: 400rpx;
+}
+
+.preset-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.preset-item:last-child {
+  border-bottom: none;
+}
+
+.preset-name {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+  flex: 1;
+}
+
+.preset-time {
+  font-size: 26rpx;
+  color: #666;
+  margin-right: 20rpx;
+}
+
+.delete-preset {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background: #f44336;
+  color: white;
+  border: none;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-preset:active {
+  background: #d32f2f;
+}

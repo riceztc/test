@@ -1,0 +1,46 @@
+<!--detail.wxml-->
+<view class="container">
+  <view class="header">
+    <text class="title">{{mode === 'add' ? '添加账单' : '编辑账单'}}</text>
+  </view>
+
+  <form bindsubmit="onSubmit">
+    <view class="form-item">
+      <text class="label">标题</text>
+      <input class="input" value="{{bill.title}}" placeholder="请输入账单标题" bindinput="onTitleInput" />
+    </view>
+
+    <view class="form-item">
+      <text class="label">金额</text>
+      <input class="input" value="{{bill.amount}}" type="digit" placeholder="请输入金额" bindinput="onAmountInput" />
+    </view>
+
+    <view class="form-item">
+      <text class="label">类型</text>
+      <radio-group name="type" bindchange="onTypeChange">
+        <label class="radio-item">
+          <radio value="支出" checked="{{bill.type === '支出'}}" />
+          <text>支出</text>
+        </label>
+        <label class="radio-item">
+          <radio value="收入" checked="{{bill.type === '收入'}}" />
+          <text>收入</text>
+        </label>
+      </radio-group>
+    </view>
+
+    <view class="form-item">
+      <text class="label">备注</text>
+      <textarea class="textarea" value="{{bill.remark}}" placeholder="请输入备注（选填）" bindinput="onRemarkInput"></textarea>
+    </view>
+
+    <view class="button-group">
+      <button wx:if="{{mode === 'add'}}" form-type="submit" class="btn submit-btn">添加</button>
+      <block wx:else>
+        <button form-type="submit" class="btn submit-btn">保存</button>
+        <button bindtap="onDelete" class="btn delete-btn">删除</button>
+      </block>
+      <button bindtap="onCancel" class="btn cancel-btn">取消</button>
+    </view>
+  </form>
+</view>

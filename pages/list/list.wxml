@@ -1,0 +1,37 @@
+<!--list.wxml-->
+<view class="container">
+  <view class="header">
+    <text class="title">账单列表</text>
+    <button class="add-btn" bindtap="goToAdd">+</button>
+  </view>
+
+  <view class="filter-section">
+    <picker bindchange="onTypeChange" value="{{typeIndex}}" range="{{types}}">
+      <view class="picker">
+        类型: {{types[typeIndex]}}
+      </view>
+    </picker>
+  </view>
+
+  <view class="list-container">
+    <block wx:for="{{bills}}" wx:key="id">
+      <view class="bill-item" bindtap="goToDetail" data-id="{{item.id}}">
+        <view class="bill-left">
+          <text class="bill-title">{{item.title}}</text>
+          <text class="bill-date">{{item.date}}</text>
+          <text class="bill-type">{{item.type}}</text>
+        </view>
+        <view class="bill-right">
+          <text class="bill-amount {{item.type === '支出' ? 'expense' : 'income'}}">
+            {{item.type === '支出' ? '-' : '+'}}¥{{item.amount}}
+          </text>
+        </view>
+      </view>
+    </block>
+
+    <view wx:if="{{bills.length === 0}}" class="empty">
+      <text>暂无账单记录</text>
+      <button class="btn" bindtap="goToAdd">添加第一笔账单</button>
+    </view>
+  </view>
+</view>
