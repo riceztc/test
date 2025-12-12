@@ -211,6 +211,8 @@ Page({
       fullUrl = '/pages/calculator/calculator'  // 计算器
     } else if (path.includes('timer/index')) {
       fullUrl = '/pages/timer/timer'  // 倒计时
+    } else if (path.includes('seat/index')) {
+      fullUrl = '/pages/seat/seat'  // 座位表
     } else {
       fullUrl = `/${path}`  // 其他页面使用原始路径
     }

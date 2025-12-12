@@ -1,0 +1,49 @@
+<!-- 座位表生成器页面 -->
+<view class="container">
+  <view class="header">
+    <text class="title">座位表生成器</text>
+    <text class="subtitle">智能生成会议室座位布局</text>
+  </view>
+
+  <view class="input-section">
+    <view class="input-group">
+      <text class="label">行数</text>
+      <input class="input" type="number" id="rows" value="25" bindinput="onInputChange" data-field="rows" />
+    </view>
+    
+    <view class="input-group">
+      <text class="label">列数</text>
+      <input class="input" type="number" id="cols" value="10" bindinput="onInputChange" data-field="cols" />
+    </view>
+    
+    <view class="input-group full-width">
+      <text class="label">姓名（用"|"分隔）</text>
+      <input class="input" id="names" value="1|2|3|4|5|6|7|8|9|10|11|12|13|14" 
+             placeholder="如：张三|李四|王五" bindinput="onInputChange" data-field="names" />
+    </view>
+  </view>
+
+  <view class="button-group">
+    <button class="btn primary" bindtap="generateSeats">生成座位表</button>
+    <button class="btn secondary" bindtap="clearData">清空数据</button>
+  </view>
+
+  <view class="seat-container" wx:if="{{showSeatTable}}">
+    <view class="seat-header">
+      <text class="seat-title">座位表</text>
+      <view class="seat-actions">
+        <button class="btn-small" bindtap="exportData">导出</button>
+        <button class="btn-small" bindtap="copyToClipboard">复制</button>
+      </view>
+    </view>
+    
+    <view class="seat-table">
+      <view class="seat-row" wx:for="{{seatMatrix}}" wx:key="index">
+        <view class="seat-cell {{item ? 'seat-occupied' : 'seat-empty'}}" 
+              wx:for="{{item}}" wx:for-item="seat" wx:key="index">
+          <text class="seat-text">{{seat}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

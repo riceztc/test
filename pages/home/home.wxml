@@ -41,13 +41,13 @@
       <text class="tool-desc">定时提醒</text>
     </view>
 
-    <!-- 备忘录 -->
-    <view class="tool-item" bindtap="navigateToTool" data-path="notes/index">
-      <view class="tool-icon notes">
-        <text class="icon">📝</text>
+    <!-- 座位表 -->
+    <view class="tool-item" bindtap="navigateToTool" data-path="seat/index">
+      <view class="tool-icon seat">
+        <text class="icon">🪑</text>
       </view>
-      <text class="tool-name">备忘录</text>
-      <text class="tool-desc">记录生活点滴</text>
+      <text class="tool-name">座位表</text>
+      <text class="tool-desc">智能座位布局</text>
     </view>
 
     <!-- 天气查询 -->

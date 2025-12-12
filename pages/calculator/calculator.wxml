@@ -1,4 +1,5 @@
 <view class="container">
+  <!-- 主计算器区域 -->
   <view class="calculator">
     <!-- 显示屏 -->
     <view class="display">
@@ -8,15 +9,15 @@
     
     <!-- 按钮区域 -->
     <view class="buttons">
-      <!-- 第一行 -->
+      <!-- 第一行：功能键和除法 -->
       <view class="row">
-        <button class="btn function" bindtap="clear">AC</button>
-        <button class="btn function" bindtap="toggleSign">+/-</button>
+        <button class="btn function" bindtap="clear">C</button>
+        <button class="btn function" bindtap="toggleSign">±</button>
         <button class="btn function" bindtap="percentage">%</button>
         <button class="btn operator" bindtap="appendOperator" data-op="/">÷</button>
       </view>
       
-      <!-- 第二行 -->
+      <!-- 第二行：7,8,9和乘法 -->
       <view class="row">
         <button class="btn number" bindtap="appendNumber" data-num="7">7</button>
         <button class="btn number" bindtap="appendNumber" data-num="8">8</button>
@@ -24,7 +25,7 @@
         <button class="btn operator" bindtap="appendOperator" data-op="*">×</button>
       </view>
       
-      <!-- 第三行 -->
+      <!-- 第三行：4,5,6和减法 -->
       <view class="row">
         <button class="btn number" bindtap="appendNumber" data-num="4">4</button>
         <button class="btn number" bindtap="appendNumber" data-num="5">5</button>
@@ -32,7 +33,7 @@
         <button class="btn operator" bindtap="appendOperator" data-op="-">-</button>
       </view>
       
-      <!-- 第四行 -->
+      <!-- 第四行：1,2,3和加法 -->
       <view class="row">
         <button class="btn number" bindtap="appendNumber" data-num="1">1</button>
         <button class="btn number" bindtap="appendNumber" data-num="2">2</button>
@@ -40,10 +41,11 @@
         <button class="btn operator" bindtap="appendOperator" data-op="+">+</button>
       </view>
       
-      <!-- 第五行 -->
+      <!-- 第五行：0,小数点,退格和等号 -->
       <view class="row">
-        <button class="btn number zero" bindtap="appendNumber" data-num="0">0</button>
+        <button class="btn number wide" bindtap="appendNumber" data-num="0">0</button>
         <button class="btn number" bindtap="appendDecimal">.</button>
+        <button class="btn function" bindtap="backspace">←</button>
         <button class="btn equals" bindtap="calculate">=</button>
       </view>
     </view>

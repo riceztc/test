@@ -6,7 +6,8 @@
     "pages/detail/detail",
     "pages/logs/logs",
     "pages/calculator/calculator",
-    "pages/timer/timer"
+    "pages/timer/timer",
+    "pages/seat/seat"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,0 +1,270 @@
+/* 座位表生成器样式 */
+page {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+.container {
+  padding: 40rpx 30rpx;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* 标题区域 */
+.header {
+  text-align: center;
+  margin-bottom: 60rpx;
+  padding: 40rpx 20rpx;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20rpx;
+  box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  display: block;
+  font-size: 44rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.subtitle {
+  display: block;
+  font-size: 28rpx;
+  color: #666;
+  font-weight: normal;
+}
+
+/* 输入区域 */
+.input-section {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20rpx;
+  padding: 40rpx 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 8rpx 25rpx rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+  margin-bottom: 30rpx;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20rpx;
+}
+
+.input-group.full-width {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.label {
+  color: #2d3a4b;
+  font-weight: 500;
+  font-size: 28rpx;
+  min-width: 180rpx;
+}
+
+.input {
+  flex: 1;
+  border: 1px solid #d0d7e2;
+  border-radius: 12rpx;
+  padding: 20rpx 24rpx;
+  font-size: 28rpx;
+  outline: none;
+  background: #fff;
+  transition: border-color 0.2s ease;
+}
+
+.input:focus {
+  border-color: #4f8cff;
+}
+
+/* 按钮组 */
+.button-group {
+  display: flex;
+  gap: 20rpx;
+  margin-bottom: 40rpx;
+  justify-content: center;
+}
+
+.btn {
+  background: #4f8cff;
+  color: #fff;
+  border: none;
+  border-radius: 12rpx;
+  padding: 20rpx 40rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  min-width: 140rpx;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn.secondary {
+  background: #6c757d;
+}
+
+.btn-small {
+  background: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 8rpx;
+  padding: 12rpx 24rpx;
+  font-size: 24rpx;
+  margin-left: 10rpx;
+}
+
+.btn-small:active {
+  transform: scale(0.95);
+}
+
+/* 座位表容器 */
+.seat-container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-shadow: 0 8rpx 25rpx rgba(0, 0, 0, 0.1);
+  overflow: auto;
+  width: 100%;
+  box-sizing: border-box;
+  
+
+}
+
+.seat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #eee;
+}
+
+.seat-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.seat-actions {
+  display: flex;
+  gap: 15rpx;
+}
+
+/* 座位表 */
+.seat-table {
+  background: #f8f9fa;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  min-height: 200rpx;
+}
+
+.seat-row {
+  display: flex;
+  margin-bottom: 8rpx;
+  gap: 8rpx;
+}
+
+.seat-cell {
+  background: #fff;
+  border-radius: 8rpx;
+  border: 2px solid #d0d7e2;
+  min-width: 70rpx;
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  font-weight: 500;
+  color: #2d3a4b;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+  flex: 1;
+  max-width: 120rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.seat-occupied {
+  background: #e3f2fd;
+  border-color: #2196f3;
+  color: #000;
+}
+
+.seat-empty {
+  background: #f4f6fa;
+  border-style: dashed;
+  color: #b0b8c9;
+}
+
+.seat-text {
+  font-size: 22rpx;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* 响应式设计 */
+@media (max-width: 750rpx) {
+  .container {
+    padding: 30rpx 20rpx;
+  }
+
+  .input-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .label {
+    min-width: auto;
+    margin-bottom: 10rpx;
+  }
+
+  .input {
+    padding: 18rpx 20rpx;
+    font-size: 26rpx;
+  }
+
+  .seat-cell {
+    min-width: 60rpx;
+    height: 60rpx;
+    font-size: 20rpx;
+  }
+
+  .seat-text {
+    font-size: 18rpx;
+  }
+}
+
+@media (max-width: 500rpx) {
+  .seat-table {
+    padding: 15rpx;
+  }
+
+  .seat-row {
+    gap: 6rpx;
+  }
+
+  .seat-cell {
+    min-width: 50rpx;
+    height: 50rpx;
+    font-size: 18rpx;
+  }
+
+  .seat-text {
+    font-size: 16rpx;
+  }
+
+  .button-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    margin-bottom: 15rpx;
+  }
+}
